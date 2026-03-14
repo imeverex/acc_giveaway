@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>eBikes Calgary – Trade Show Giveaway</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* Renamed for clarity: --bg-light is the page background, --bg-lighter is the slightly lighter shade */
     --teal: #2ec4a5;
-    --dark: #d0d4d8;
-    --darker: #f0f1f2;
+    --bg-light: #d0d4d8;
+    --bg-lighter: #f0f1f2;
     --card: #ffffff;
     --red: #e63946;
     --text: #1a2027;
     --muted: #5a6370;
     --gold: #f4c430;
+    /* Button text uses white for clarity instead of the ambiguous --bg-lighter */
+    --btn-text: #ffffff;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--darker);
+    background: var(--bg-lighter);
     color: var(--text);
     font-family: 'Barlow', sans-serif;
     min-height: 100vh;
@@ -63,7 +66,7 @@
     display: inline-block;
     margin-top: 20px;
     background: var(--teal);
-    color: var(--darker);
+    color: var(--btn-text);
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
     font-size: 11px;
@@ -133,7 +136,7 @@
     top: 10px;
     left: 10px;
     background: var(--teal);
-    color: var(--darker);
+    color: var(--btn-text);
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 11px;
@@ -269,6 +272,20 @@
     box-shadow: 0 0 0 3px rgba(46,196,165,0.12);
   }
 
+  /* Error state for inputs */
+  input.input-error {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(230,57,70,0.12);
+  }
+
+  .field-error {
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: none;
+  }
+
   select option { background: #f7f8f9; color: #1a2027; }
 
   .checkbox-group {
@@ -304,12 +321,19 @@
 
   .checkbox-group label a { color: var(--teal); text-decoration: none; }
 
+  /* Divider outside the grid */
+  .form-divider {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin: 28px 0;
+  }
+
   .btn-enter {
     width: 100%;
     margin-top: 24px;
     padding: 16px;
     background: var(--teal);
-    color: var(--darker);
+    color: var(--btn-text);
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 20px;
@@ -323,17 +347,17 @@
     overflow: hidden;
   }
 
-  .btn-enter:hover {
+  .btn-enter:hover:not(:disabled) {
     background: #35d9b7;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px rgba(46,196,165,0.3);
   }
 
-  .btn-enter:active { transform: translateY(0); }
+  .btn-enter:active:not(:disabled) { transform: translateY(0); }
 
   .btn-enter:disabled {
     background: #9aa5b0;
-    color: #5a6570;
+    color: #e0e4e8;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
@@ -365,12 +389,6 @@
     color: var(--muted);
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .divider {
-    border: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    margin: 28px 0;
   }
 
   footer {
@@ -409,8 +427,8 @@
 
   <header>
     <div class="logo-wrap">
-		<img src="EBC_horz.png" alt="ebc logo"/>
-	  </div>
+      <img src="./eBikes Calgary – Trade Show Giveaway_files/EBC_horz.png" alt="eBikes Calgary logo">
+    </div>
     <div class="header-tag">🎉 March 21–22 · Trade Show Giveaway</div>
     <h1>Win <span>Big</span><br>Ride <span>Free</span></h1>
     <p class="subtitle">Enter once for a chance to win one of three amazing prizes — drawn live on <strong style="color:var(--teal)">Sunday, March 22nd</strong> at the show.</p>
@@ -422,8 +440,8 @@
     <div class="prize-card">
       <div class="prize-rank">1st Prize</div>
       <div class="prize-img-wrap">
-		<img src="mb_pannier.jpg" >
-		</div>
+        <img src="./eBikes Calgary – Trade Show Giveaway_files/mb_pannier.jpg" alt="Michael Blast Leather Pannier Bag">
+      </div>
       <div class="prize-info">
         <div class="prize-brand">Michael Blast</div>
         <div class="prize-name">Leather Pannier Bag</div>
@@ -434,7 +452,7 @@
     <div class="prize-card">
       <div class="prize-rank">2nd Prize</div>
       <div class="prize-img-wrap">
-		  <img src="surface604_helmet.jpg">
+        <img src="./eBikes Calgary – Trade Show Giveaway_files/surface604_helmet.jpg" alt="Surface 604 Trail Helmet">
       </div>
       <div class="prize-info">
         <div class="prize-brand">Surface 604</div>
@@ -446,8 +464,8 @@
     <div class="prize-card">
       <div class="prize-rank">3rd Prize</div>
       <div class="prize-img-wrap">
-			<img src="surface604_cleankit.jpg">
-		</div>
+        <img src="./eBikes Calgary – Trade Show Giveaway_files/surface604_cleankit.jpg" alt="Surface 604 e-Bike Cleaning and Maintenance Kit">
+      </div>
       <div class="prize-info">
         <div class="prize-brand">Surface 604</div>
         <div class="prize-name">e-Bike Cleaning &amp; Maintenance Kit</div>
@@ -463,49 +481,56 @@
       <p class="form-desc">Fill in your details below. One entry per person. Winners will be contacted by email after the draw.</p>
 
       <form id="giveaway-form" novalidate>
+        <!-- Grid for the name/email/phone fields -->
         <div class="form-grid">
           <div class="form-group">
             <label for="first-name">First Name *</label>
             <input type="text" id="first-name" placeholder="Jane" required>
+            <span class="field-error" id="err-first-name">Please enter your first name.</span>
           </div>
           <div class="form-group">
             <label for="last-name">Last Name *</label>
             <input type="text" id="last-name" placeholder="Smith" required>
+            <span class="field-error" id="err-last-name">Please enter your last name.</span>
           </div>
           <div class="form-group">
             <label for="email">Email Address *</label>
             <input type="email" id="email" placeholder="jane@email.com" required>
+            <span class="field-error" id="err-email">Please enter a valid email address.</span>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="(403) 555-0100">
+            <input type="tel" id="phone" placeholder="(403) 555-0100" maxlength="14">
+            <span class="field-error" id="err-phone">Please enter a valid phone number.</span>
           </div>
+        </div>
+        <!-- Divider is outside the grid to avoid invalid HTML structure -->
+        <hr class="form-divider">
 
-        <hr class="divider">
-
-        <div class="form-group full">
+        <!-- Checkboxes below the grid -->
+        <div class="form-group">
           <div class="checkbox-group">
             <input type="checkbox" id="consent-marketing" name="consent-marketing">
             <label for="consent-marketing">I'd like to receive news, deals, and updates from eBikes Calgary by email. (Optional)</label>
           </div>
         </div>
-        <div class="form-group full" style="margin-top:10px">
+        <div class="form-group" style="margin-top:10px">
           <div class="checkbox-group">
             <input type="checkbox" id="consent-rules" name="consent-rules" required>
-            <label for="consent-rules">I agree to the <a href="policy_rules.pdf" target="_blank">contest rules &amp; privacy policy</a> and confirm I am 18 years or older. *</label>
+            <label for="consent-rules">I agree to the <a href="https://acc-giveaway.vercel.app/policy_rules.pdf" target="_blank">contest rules &amp; privacy policy</a> and confirm I am 18 years or older. *</label>
           </div>
+          <span class="field-error" id="err-rules" style="margin-top:4px">You must agree to the contest rules to enter.</span>
         </div>
 
         <button type="submit" class="btn-enter" id="submit-btn">Enter the Draw →</button>
-  	  </div>
-	</form>
-   
+      </form>
 
-    <div class="success-screen" id="success-screen">
-      <div class="success-icon">🎉</div>
-      <div class="success-title">You're in!</div>
-      <p class="success-sub">Thanks for entering, <strong id="winner-name"></strong>!<br>
-        We'll reach out by email if you win.<br>Good luck — ride on! 🚴‍♂️</p>
+      <div class="success-screen" id="success-screen">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">You're in!</div>
+        <p class="success-sub">Thanks for entering, <strong id="winner-name"></strong>!<br>
+          We'll reach out by email if you win.<br>Good luck — ride on! 🚴‍♂️</p>
+      </div>
     </div>
   </div>
 
@@ -518,56 +543,114 @@
 <script>
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbw6ImWw3x-nCFAazWFa0TSiKdbeoafYU2iYunauvX-cAqa4Pa38H8nxq-hPA4pbKC4/exec';
 
-  const form = document.getElementById('giveaway-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const formWrap = document.getElementById('form-wrap');
+  const form        = document.getElementById('giveaway-form');
+  const submitBtn   = document.getElementById('submit-btn');
+  const formWrap    = document.getElementById('form-wrap');
   const successScreen = document.getElementById('success-screen');
-  const winnerName = document.getElementById('winner-name');
+  const winnerName  = document.getElementById('winner-name');
 
-  form.addEventListener('submit', function(e) {
+  // --- Phone number auto-formatting ---
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('input', function () {
+    // Strip all non-digits
+    let digits = this.value.replace(/\D/g, '').slice(0, 10);
+    // Format as (NXX) NXX-XXXX
+    if (digits.length <= 3) {
+      this.value = digits.length ? '(' + digits : '';
+    } else if (digits.length <= 6) {
+      this.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+    } else {
+      this.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+    }
+  });
+
+  // --- Inline validation helpers ---
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const PHONE_RE = /^\(\d{3}\) \d{3}-\d{4}$/; // matches formatted output
+
+  function showError(inputId, errorId) {
+    const el = document.getElementById(inputId);
+    const err = document.getElementById(errorId);
+    if (el) el.classList.add('input-error');
+    if (err) err.style.display = 'block';
+  }
+
+  function clearError(inputId, errorId) {
+    const el = document.getElementById(inputId);
+    const err = document.getElementById(errorId);
+    if (el) el.classList.remove('input-error');
+    if (err) err.style.display = 'none';
+  }
+
+  // Clear errors on input change
+  ['first-name', 'last-name', 'email', 'phone'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function() {
+        clearError(id, 'err-' + id);
+      });
+    }
+  });
+  document.getElementById('consent-rules').addEventListener('change', function() {
+    clearError(null, 'err-rules');
+    document.getElementById('consent-rules').classList.remove('input-error');
+  });
+
+  // --- Form submit ---
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const firstName = document.getElementById('first-name').value.trim();
-    const lastName = document.getElementById('last-name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const rulesCheck = document.getElementById('consent-rules').checked;
+    const firstName   = document.getElementById('first-name').value.trim();
+    const lastName    = document.getElementById('last-name').value.trim();
+    const email       = document.getElementById('email').value.trim();
+    const phone       = document.getElementById('phone').value.trim();
+    const rulesCheck  = document.getElementById('consent-rules').checked;
 
-    // Validation
-    if (!firstName || !lastName) { alert('Please enter your full name.'); return; }
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-    if (!rulesCheck) { alert('Please agree to the contest rules to enter.'); return; }
+    // Validate — collect all errors at once rather than bail on first
+    let hasError = false;
 
-    // Disable button
+    if (!firstName) { showError('first-name', 'err-first-name'); hasError = true; }
+    if (!lastName)  { showError('last-name',  'err-last-name');  hasError = true; }
+    if (!EMAIL_RE.test(email)) { showError('email', 'err-email'); hasError = true; }
+    if (phone && !PHONE_RE.test(phone)) { showError('phone', 'err-phone'); hasError = true; }
+    if (!rulesCheck) {
+      document.getElementById('err-rules').style.display = 'block';
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    // Disable button and show loading state
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
 
     // Build form-encoded body — required for Apps Script no-cors POST
     const params = new URLSearchParams({
-      timestamp: new Date().toLocaleString('en-CA', { timeZone: 'America/Edmonton' }),
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: document.getElementById('phone').value.trim(),
-      ebikeInterest: document.getElementById('ebike-interest').value || 'Not specified',
+      timestamp:       new Date().toLocaleString('en-CA', { timeZone: 'America/Edmonton' }),
+      firstName:       firstName,
+      lastName:        lastName,
+      email:           email,
+      phone:           phone,
       marketingConsent: document.getElementById('consent-marketing').checked ? 'Yes' : 'No'
     });
 
-    // Use no-cors with form-urlencoded — this is the only reliable way to POST to Apps Script
+    // no-cors POST to Apps Script — response is always opaque so we optimistically show success
     fetch(SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
+      method:  'POST',
+      mode:    'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    }).then(function() {
+      body:    params.toString()
+    }).then(function () {
       winnerName.textContent = firstName;
-      formWrap.style.display = 'none';
+      form.style.display = 'none';
       successScreen.style.display = 'block';
-    }).catch(function() {
+    }).catch(function () {
       alert('There was a problem submitting your entry. Please try again or ask a staff member for help.');
       submitBtn.disabled = false;
       submitBtn.textContent = 'Enter the Draw →';
     });
   });
 </script>
+
 </body>
 </html>
